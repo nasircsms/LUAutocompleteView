@@ -5,7 +5,7 @@
 //  Created by Laurentiu Ungur on 24/04/2017.
 //  Copyright © 2017 Laurentiu Ungur. All rights reserved.
 //
-
+import UIKit
 /// Highly configurable autocomplete view that is attachable to any `UITextField`.
 open class LUAutocompleteView: UIView {
     // MARK: - Public Properties
@@ -238,7 +238,8 @@ extension LUAutocompleteView: UITableViewDataSource {
         guard autocompleteCell != nil, let customCell = cell as? LUAutocompleteTableViewCell  else {
             cell.textLabel?.attributedText = NSAttributedString(string: text, attributes: textAttributes)
             cell.selectionStyle = .none
-
+            cell.textLabel?.textColor = textColor
+            cell.backgroundColor = cellBackgroundColor
             return cell
         }
 
