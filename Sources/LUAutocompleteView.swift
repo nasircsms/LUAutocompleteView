@@ -64,7 +64,15 @@ open class LUAutocompleteView: UIView {
             tableView.rowHeight = rowHeight
         }
     }
-
+    
+    public var textColor: UIColor = .black
+    public var cellBackgroundColor: UIColor = .white
+    public var cellSeparatorColor: UIColor = .gray {
+        didSet {
+            tableView.separatorColor = cellSeparatorColor
+        }
+    }
+    
     // MARK: - Private Properties
 
     private let tableView = UITableView()
@@ -235,6 +243,8 @@ extension LUAutocompleteView: UITableViewDataSource {
         }
 
         customCell.set(text: text)
+        cell.textLabel?.textColor = textColor
+        cell.backgroundColor = cellBackgroundColor
 
         return customCell
     }
